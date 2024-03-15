@@ -1,0 +1,51 @@
+<table class="table__container"
+       [class.table__container--selectable]="selectable()"
+       [attr.aria-label]="ariaLabel()"
+       [attr.aria-labelledby]="ariaLabelledBy()"
+       [attr.aria-describedby]="ariaDescribedBy()"
+>
+  <caption class="table__caption">{{ caption() }}</caption>
+  <thead>
+    <tr class="table__row table__header-row">
+      @if (selectable()) {
+        <th></th>
+      }
+      @for (column of columns(); track column.field) {
+        <th class="table__cell table__header-cell table__header-cell--{{ column.field }}"
+            scope="col">
+          @if (column?.headerText) {
+            {{ column.headerText }}
+          } @else {
+            {{ column.field | titlecase }}
+          }
+        </th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (row of data(); track $index) {
+      <tr class="table__row table__body-row"
+          (click)="onClickRow(row)"
+          [class.table__body-row--selected]="selectedRows().includes(row)"
+      >
+        @if (selectable()) {
+          <td class="table__cell table__body-cell">
+            <app-checkbox #checkbox="appCheckbox"
+                          [checked]="selectedRows().includes(row)"
+                          [aria-label]="(checkbox.checked ? 'De-select' : 'Select') + ' row ' + ($index + 1)"
+            />
+          </td>
+        }
+        @for (column of columns(); track column.field) {
+          <td class="table__cell table__body-cell table__body-cell--{{ column.field }}">
+            @if (column?.customTemplate) {
+              <ng-container *ngTemplateOutlet="column.customTemplate!; context: { $implicit: row, column }" />
+            } @else {
+              {{ row[column.field] }}
+            }
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
+</table>

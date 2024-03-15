@@ -1,0 +1,57 @@
+:host {
+  --table-hover-color: #F2F2F3;
+  --table-selected-color: #E5E6E7;
+  --table-selected-hover-color: #D8DADC;
+  --border-color: #BFC2C5;
+}
+
+.table {
+  &__container {
+    width: 100%;
+    border-collapse: collapse;
+
+    &--selectable {
+      .table__body-row {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__caption {
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__row {
+    border-top: 1px solid var(--border-color);
+  }
+
+  &__body-row {
+    &--selected {
+      background-color: var(--table-selected-color)
+    }
+
+    &:hover {
+      &:not(.table__body-row--selected) {
+        background-color: var(--table-hover-color);
+      }
+
+      background-color: var(--table-selected-hover-color);
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+
+  &__cell {
+    padding: 0.75rem 1rem;
+  }
+
+  &__header-cell {
+    text-align: start;
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+}
