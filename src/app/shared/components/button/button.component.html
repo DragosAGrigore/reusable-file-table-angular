@@ -1,0 +1,9 @@
+<button class="button"
+        [disabled]="disabled()"
+        [attr.aria-label]="ariaLabel()"
+        [attr.aria-labelledby]="ariaLabelledBy()"
+        [attr.aria-describedby]="ariaDescribedBy()"
+        (click)="buttonClicked.emit()"
+>
+  <ng-content></ng-content>
+</button>

@@ -1,0 +1,18 @@
+.button {
+  all: unset;
+
+  &:hover {
+    &:not([disabled]) {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
