@@ -1,12 +1,8 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, input, Output } from '@angular/core';
-import { ReactiveFormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [
-    ReactiveFormsModule
-  ],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

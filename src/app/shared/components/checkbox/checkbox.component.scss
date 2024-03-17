@@ -14,6 +14,7 @@
     @include checkbox-size;
     position: relative;
     margin: 0;
+    padding: 1rem;
 
     &:enabled {
       &:hover {
