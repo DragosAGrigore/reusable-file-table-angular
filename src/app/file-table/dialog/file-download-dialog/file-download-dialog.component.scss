@@ -1,0 +1,28 @@
+:host {
+  padding: 2rem;
+  --button-padding: 1rem;
+}
+
+.download-dialog {
+  &__file-item {
+    &--success {
+      font-size: 1.1rem;
+      color: green;
+    }
+  }
+
+  &__footer {
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  &__close-button {
+    --button-padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}
+
+.text-error {
+  color: red;
+}

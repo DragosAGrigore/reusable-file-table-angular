@@ -1,0 +1,33 @@
+<div class="download-dialog__body">
+  @if (downloadedFiles().length) {
+    <h3>
+      The following files have been downloaded:
+    </h3>
+    <ng-container *ngTemplateOutlet="filesListing; context: { $implicit: downloadedFiles(), isSuccess: true }" />
+  }
+  @if (excludedFiles().length) {
+    <h5>
+      <span class="text-error">Warning!</span> The following files could not be downloaded:
+    </h5>
+    <ng-container *ngTemplateOutlet="filesListing; context: { $implicit: excludedFiles() }" />
+  }
+</div>
+<hr />
+<div class="download-dialog__footer">
+  <app-button class="download-dialog__close-button"
+              [disabled]="false"
+              (click)="modalService.closeModal()"
+  >
+    Confirm
+  </app-button>
+</div>
+
+<ng-template #filesListing let-files let-isSuccess="isSuccess">
+  @for (file of files; track file['device'] + file['path']) {
+    <div class="download-dialog__file-item"
+         [class.download-dialog__file-item--success]="isSuccess"
+    >
+      {{ file['path'] }} - {{ file['device'] }}
+    </div>
+  }
+</ng-template>
