@@ -4,7 +4,7 @@ export type FileStatusDisplay = {
   [key in FileStatus]: string;
 }
 
-export const statusDisplayMap: FileStatusDisplay = {
+export const fileStatusDisplayMap: FileStatusDisplay = {
   "available": "Available",
   "scheduled": "Scheduled",
   "unavailable": "Unavailable"

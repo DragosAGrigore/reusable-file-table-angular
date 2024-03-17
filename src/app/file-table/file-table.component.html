@@ -16,12 +16,12 @@
 <ng-template #statusTemplate let-row let-column="column">
   <div class="status-template__container">
     @if (Object.hasOwn(fileStatusIconMap, row[column['field']])) {
-      <app-svg-icon class="status-template__icon status-template__icon--{{row[column['field']]}}"
+      <app-svg-icon class="status-template__icon status-template__icon--{{ row[column['field']] }}"
                     [fileName]="'circle'"
-                    [aria-label]="row[column['field']] | statusDisplay"
-                    [color]="row[column['field']] | statusColor"
+                    [aria-label]="fileStatusDisplayMap | objectField : row[column['field']]"
+                    [color]="fileStatusIconMap | objectField : row[column['field']]"
       />
     }
-    {{ row[column['field']] | statusDisplay }}
+    {{ fileStatusDisplayMap | objectField : row[column['field']] }}
   </div>
 </ng-template>

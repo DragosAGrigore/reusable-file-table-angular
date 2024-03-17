@@ -9,9 +9,8 @@ import { TableComponent } from "../shared/components/table/table.component";
 import { FileDataService } from "./services/file-data.service";
 import { SvgIconComponent } from "../shared/components/svg-icon/svg-icon.component";
 import { FileTableActionsComponent } from "./partials/file-table-actions/file-table-actions.component";
-import { StatusDisplayPipe } from "../shared/pipes/status-display/status-display.pipe";
-import { fileStatusIconMap } from "./model/file-status";
-import { StatusColorPipe } from "../shared/pipes/status-color/status-color.pipe";
+import { fileStatusIconMap, fileStatusDisplayMap } from "./model/file-status";
+import { ObjectFieldPipe } from "../shared/pipes/object-field/object-field.pipe";
 
 @Component({
   selector: 'app-file-table',
@@ -21,8 +20,7 @@ import { StatusColorPipe } from "../shared/pipes/status-color/status-color.pipe"
     TableComponent,
     SvgIconComponent,
     FileTableActionsComponent,
-    StatusDisplayPipe,
-    StatusColorPipe
+    ObjectFieldPipe
   ],
   templateUrl: './file-table.component.html',
   styleUrl: './file-table.component.scss',
@@ -35,6 +33,7 @@ export default class FileTableComponent implements OnInit {
   data: Signal<FileInfo[]> = toSignal(this.fileDataService.getFileData(), { initialValue: [] });
   columns: TableColumnConfig<FileInfo>[] = [];
   protected readonly fileStatusIconMap = fileStatusIconMap;
+  protected readonly fileStatusDisplayMap = fileStatusDisplayMap;
   protected readonly Object = Object;
 
   ngOnInit() {
