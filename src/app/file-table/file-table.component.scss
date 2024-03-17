@@ -1,0 +1,27 @@
+:host {
+  padding-top: 0.5rem;
+  display: block;
+  box-shadow: 1px 2px 5px -1px rgba(0, 0, 0, 0.3);
+}
+
+.file-table__table {
+  ::ng-deep {
+    .table__body-cell--path {
+      padding-right: 2.5rem;
+    }
+  }
+}
+
+.status-template {
+  &__container {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    top: -0.5rem;
+    left: -2.5rem;
+  }
+}

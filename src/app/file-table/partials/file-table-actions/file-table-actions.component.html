@@ -1,0 +1,22 @@
+<app-checkbox #checkbox
+              class="file-table-actions__select-checkbox"
+              [checked]="isAllSelected()"
+              [indeterminate]="hasSelectedRows() && !isAllSelected()"
+              (click)="checkboxClicked.emit()"
+              [aria-label]="(checkbox.checked ? 'De-select' : 'Select') + ' all rows'"
+/>
+<div class="file-table-actions__selected-rows-text">
+  {{ !hasSelectedRows() ? 'None Selected' : ('Selected ' + selectedRowsLength()) }}
+</div>
+<app-button class="file-table-actions__download-button"
+            [disabled]="!hasSelectedRows()"
+            [attr.aria-label]="'Download selected files button'"
+            [attr.aria-disabled]="hasSelectedRows() ? 'false' : 'true'"
+            (buttonClicked)="downloadClicked.emit()"
+>
+  <app-svg-icon class="download-button__icon"
+                [aria-label]="'Download icon'"
+                [fileName]="'download'" />
+  Download Selected
+</app-button>
+

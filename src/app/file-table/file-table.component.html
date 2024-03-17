@@ -1,0 +1,27 @@
+<app-file-table-actions class="file-table__actions"
+                        [isAllSelected]="table.isAllSelected()"
+                        [hasSelectedRows]="table.hasSelectedRows()"
+                        [selectedRowsLength]="table.selectedRowsLength()"
+                        (checkboxClicked)="table.toggleAllRows()"
+                        (downloadClicked)="onDownloadClick()"
+/>
+<app-table #table
+           class="file-table__table"
+           [columns]="columns"
+           [data]="data()"
+           [selectable]="true"
+           [aria-label]="'Select files to download'"
+/>
+
+<ng-template #statusTemplate let-row let-column="column">
+  <div class="status-template__container">
+    @if (Object.hasOwn(fileStatusIconMap, row[column['field']])) {
+      <app-svg-icon class="status-template__icon status-template__icon--{{row[column['field']]}}"
+                    [fileName]="'circle'"
+                    [aria-label]="row[column['field']] | statusDisplay"
+                    [color]="row[column['field']] | statusColor"
+      />
+    }
+    {{ row[column['field']] | statusDisplay }}
+  </div>
+</ng-template>
