@@ -68,4 +68,11 @@ describe('ButtonComponent', () => {
 
     expect(buttonElement.getAttribute('aria-describedby')).toBe('descriptionId');
   });
+
+  it('should have correct aria-describedby attribute', () => {
+    fixture.componentRef.setInput('aria-disabled', true);
+    fixture.detectChanges();
+
+    expect(buttonElement.getAttribute('aria-disabled')).toBe('true');
+  });
 });

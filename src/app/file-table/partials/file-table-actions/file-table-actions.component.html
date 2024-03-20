@@ -10,8 +10,7 @@
 </div>
 <app-button class="file-table-actions__download-button"
             [disabled]="!hasSelectedRows()"
-            [attr.aria-label]="'Download selected files button'"
-            [attr.aria-disabled]="hasSelectedRows() ? 'false' : 'true'"
+            [aria-disabled]="!hasSelectedRows()"
             (buttonClicked)="downloadClicked.emit()"
 >
   <app-svg-icon class="download-button__icon"

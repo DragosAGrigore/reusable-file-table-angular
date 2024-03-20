@@ -20,6 +20,7 @@
                     [fileName]="'circle'"
                     [aria-label]="fileStatusDisplayMap | objectField : row[column['field']]"
                     [color]="fileStatusIconMap | objectField : row[column['field']]"
+                    [title]="fileStatusDisplayMap | objectField : row[column['field']]"
       />
     }
     {{ fileStatusDisplayMap | objectField : row[column['field']] }}

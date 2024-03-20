@@ -12,6 +12,7 @@ export class ButtonComponent {
   ariaLabel = input<string | undefined>(undefined, { alias: 'aria-label' });
   ariaLabelledBy = input<string | undefined>(undefined, { alias: 'aria-labelledby' });
   ariaDescribedBy = input<string | undefined>(undefined, { alias: 'aria-describedby' });
+  ariaDisabled = input<boolean | undefined>(undefined, { alias: 'aria-disabled' });
 
   @Output() buttonClicked = new EventEmitter<void>();
 }

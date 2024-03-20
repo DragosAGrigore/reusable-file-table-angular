@@ -71,4 +71,11 @@ describe('IconComponent', () => {
 
     expect(componentElement.getAttribute('aria-describedby')).toBe('descriptionId');
   });
+
+  it('should have correct aria-describedby attribute', () => {
+    fixture.componentRef.setInput('title', 'title to show');
+    fixture.detectChanges();
+
+    expect(componentElement.getAttribute('title')).toBe('title to show');
+  });
 });

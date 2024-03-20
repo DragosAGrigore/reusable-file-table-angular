@@ -1,5 +1,10 @@
+:host {
+  --button-padding: 0;
+}
+
 .button {
   all: unset;
+  padding: var(--button-padding);
 
   &:hover {
     &:not([disabled]) {
@@ -10,6 +15,11 @@
     &:disabled {
       cursor: not-allowed;
     }
+  }
+
+  &:focus {
+    outline: 2px solid black;
+    border-radius: 2px;
   }
 
   &:disabled {

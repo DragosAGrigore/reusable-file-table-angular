@@ -16,6 +16,7 @@ import { SvgIconService } from "./services/svg-icon.service";
     "[attr.aria-label]" : "ariaLabel()",
     "[attr.aria-labelledby]": "ariaLabelledBy()",
     "[attr.aria-describedby]": "ariaDescribedBy()",
+    "[attr.title]": "title()",
     "[style.color]": "color()",
     "role": "img"
   }
@@ -28,6 +29,7 @@ export class SvgIconComponent {
   ariaLabel = input<string | undefined>(undefined, { alias: 'aria-label' });
   ariaLabelledBy = input<string | undefined>(undefined, { alias: 'aria-labelledby' });
   ariaDescribedBy = input<string | undefined>(undefined, { alias: 'aria-describedby' });
+  title = input<string | undefined>(undefined);
   color = input<string>('black');
   svgIcon = signal<any>("");
 
