@@ -21,6 +21,7 @@ import { fileStatusIconMap, fileStatusDisplayMap } from "./model/file-status";
 import { ObjectFieldPipe } from "../shared/pipes/object-field/object-field.pipe";
 import { ModalService } from "../shared/components/modal/services/modal.service";
 
+
 @Component({
   selector: 'app-file-table',
   standalone: true,
